@@ -3,6 +3,7 @@
 import { Code, Film, VenetianMask } from "lucide-react"
 import Navbar from "./Navbar"
 import { Badge } from "@/components/ui/badge"
+import Footer from "./Footer"
 
 
 
@@ -10,7 +11,7 @@ export default function Page() {
   return (
     <main className=" z-10 absolute flex flex-col text-black w-screen h-screen overflow-hidden ">
       <Navbar />
-      <section className="flex flex-col overflow-y-scroll">
+      <section className="flex flex-col overflow-y-scroll overflow-x-hidden">
         <section className=" my-12 md:my-36 lg::my-48 flex flex-col gap-2 items-center ">
           <Badge variant="outline" className="flex flex-row gap-6 p-2 border-gray-500 hover:cursor-pointer" onClick={()=>window.open('https://github.com/greeenboi/converter')}>
             <Badge variant='outline' className=" border-black">{`What's New? `}</Badge>
@@ -50,6 +51,7 @@ export default function Page() {
           </div>
           
         </section>
+        <Footer />
       </section>
     </main>
   )
