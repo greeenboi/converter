@@ -4,11 +4,12 @@ import { FFmpeg } from '@ffmpeg/ffmpeg'
 import { fetchFile, toBlobURL } from '@ffmpeg/util'
 import { useRef, useState } from 'react'
 
-export default function Home() {
+export default function Page() {
   const [loaded, setLoaded] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const ffmpegRef = useRef(new FFmpeg())
   const imageRef = useRef<HTMLImageElement | null>(null)
+  const audioRef = useRef<HTMLAudioElement | null>(null)
   const videoRef = useRef<HTMLVideoElement | null>(null)
   const messageRef = useRef<HTMLParagraphElement | null>(null)
   const inputFileRef = useRef<HTMLInputElement | null>(null)
@@ -38,10 +39,12 @@ export default function Home() {
       reader.onload = async function(e) {
         const data = new Uint8Array((e.target?.result as ArrayBuffer))
         await ffmpeg.writeFile('input.mp4', data)
-        await ffmpeg.exec(['-i', 'input.mp4', 'output.gif'])
-        const outputData = (await ffmpeg.readFile('output.gif')) as any
-        if (imageRef.current)
-          imageRef.current.src = URL.createObjectURL(new Blob([outputData.buffer], { type: 'image/gif' }))
+        // Change the ffmpeg command to convert MP4 to MP3
+        await ffmpeg.exec(['-i', 'input.mp4', 'output.mp3'])
+        const outputData = (await ffmpeg.readFile('output.mp3')) as any
+        if (audioRef.current)
+          // Change the Blob type to 'audio/mpeg'
+          audioRef.current.src = URL.createObjectURL(new Blob([outputData.buffer], { type: 'audio/mpeg' }))
       }
       reader.readAsArrayBuffer(file)
     }
@@ -50,13 +53,13 @@ export default function Home() {
   return loaded ? (
     <div className="fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
       <input type="file" accept='video/mp4' ref={inputFileRef} />
-      <img ref={imageRef} />
+      <audio ref={audioRef} controls />
       <br />
       <button
         onClick={transcode}
         className="bg-green-500 hover:bg-green-700 text-white py-3 px-6 rounded"
       >
-        Transcode mp4 to Gif
+        Transcode mp4 to mp3
       </button>
       <p ref={messageRef}></p>
     </div>
