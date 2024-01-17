@@ -1,17 +1,28 @@
 "use client";
 import { useAuth } from "@clerk/nextjs";
+import { useUser } from "@clerk/nextjs";
 import { Button } from '@/components/ui/button'
 import Logo from '@/public/videx.svg'
 import { UserButton } from '@clerk/nextjs'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, { useEffect } from 'react'
+import { toast } from "sonner"
 
 
 
 const Navbar = () => {
 
   const { isLoaded, userId, sessionId, getToken } = useAuth();
+  const { isLoaded: isUserLoaded, isSignedIn, user } = useUser();
+
+    useEffect(() => {
+      if (userId && isLoaded && isUserLoaded && isSignedIn && !localStorage.getItem('toastShown')) {
+        toast.success(`Welcome to Videx ${user.firstName}!`)
+        localStorage.setItem('toastShown', 'true');
+    }
+    }, [sessionId])
+  
 
   return (
     <nav  className='z-20 relative w-screen h-20 py-4 border-b border-[#c4ccff] bg-white bg-opacity-15 flex flex-row items-center justify-between px-8 text-[#080461] font-Josefin font-normal text-lg'>
@@ -22,6 +33,7 @@ const Navbar = () => {
         </div>
         <div className='flex flex-row gap-6 font-Josefin'>
             <UserButton afterSignOutUrl="/"/>
+
             {
               !isLoaded || !userId && (
                 <>
