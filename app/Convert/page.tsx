@@ -38,21 +38,28 @@ export default function Page(){
                     <h1 className="font-Josefin font-medium text-4xl text-[#0c23b3]">.MP4 to .MOV</h1>
                     <Link href='/Convert/Mp4-to-Mov'><Button variant='secondary' className=' px-8 py-6 bg-[#0c23b3] hover:bg-[#21295e] text-white' >Convert</Button></Link>
                 </div>
-                {/* <div className="  p-12 rounded-lg border-[#c4ccff] bg-white bg-opacity-15 nav border flex flex-col items-center gap-8">
+                <div className="  p-12 rounded-lg border-[#c4ccff] bg-white bg-opacity-15 nav border flex flex-col items-center gap-8">
                     <div className="w-full flex flex-row">
                         <Badge variant="outline" className="text-lg text-[#0c23b3] border-[#c4ccff] rounded-full p-4" ><Film /></Badge>
                     </div>
-                    <h1 className="font-Josefin font-medium text-4xl text-[#0c23b3]">.MP4 to .MP3</h1>
-                    <Link href='/Convert/Mp4-to-Mp3'><Button variant='secondary' className=' px-8 py-6 bg-[#0c23b3] hover:bg-[#21295e] text-white' >Convert</Button></Link>
+                    <h1 className="font-Josefin font-medium text-4xl text-[#0c23b3]">.MP4 to .M4A</h1>
+                    <Link href='/Convert/Mp4-to-M4A'><Button variant='secondary' className=' px-8 py-6 bg-[#0c23b3] hover:bg-[#21295e] text-white' >Convert</Button></Link>
                 </div>
                 <div className="  p-12 rounded-lg border-[#c4ccff] bg-white bg-opacity-15 nav border flex flex-col items-center gap-8">
                     <div className="w-full flex flex-row">
                         <Badge variant="outline" className="text-lg text-[#0c23b3] border-[#c4ccff] rounded-full p-4" ><Film /></Badge>
                     </div>
-                    <h1 className="font-Josefin font-medium text-4xl text-[#0c23b3]">.MP4 to .MP3</h1>
-                    <Link href='/Convert/Mp4-to-Mp3'><Button variant='secondary' className=' px-8 py-6 bg-[#0c23b3] hover:bg-[#21295e] text-white' >Convert</Button></Link>
+                    <h1 className="font-Josefin font-medium text-4xl text-[#0c23b3]">.MP4 to .WAV</h1>
+                    <Link href='/Convert/Mp4-to-WAV'><Button variant='secondary' className=' px-8 py-6 bg-[#0c23b3] hover:bg-[#21295e] text-white' >Convert</Button></Link>
                 </div>
-                 */}
+                <div className="  p-12 rounded-lg border-[#c4ccff] bg-white bg-opacity-15 nav border flex flex-col items-center gap-8">
+                    <div className="w-full flex flex-row">
+                        <Badge variant="outline" className="text-lg text-[#0c23b3] border-[#c4ccff] rounded-full p-4" ><Film /></Badge>
+                    </div>
+                    <h1 className="font-Josefin font-medium text-4xl text-[#0c23b3]">.MP4 to .AVI</h1>
+                    <Link href='/Convert/Mp4-to-AVI'><Button variant='secondary' className=' px-8 py-6 bg-[#0c23b3] hover:bg-[#21295e] text-white' >Convert</Button></Link>
+                </div>
+                
                 
 
             </section>
